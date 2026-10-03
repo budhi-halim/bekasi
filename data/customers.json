@@ -1,0 +1,405 @@
+{
+  "title": "Bekasi Customer Directory",
+  "area": "Bekasi",
+  "customers": [
+    {
+      "id": "agel-langgeng",
+      "name": "Agel Langgeng",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/Wte9AgZ5P7Pn7Vg66",
+          "contacts": [
+            {
+              "name": "Nia",
+              "role": "RnD",
+              "phone": "085712750937"
+            }
+          ]
+        },
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/hsG1c2S7snSC524c8",
+          "contacts": [
+            {
+              "name": "Melda",
+              "role": "Purchasing",
+              "phone": "08999804821"
+            }
+          ]
+        }
+      ],
+      "products": [
+        {
+          "name": "Pizza Seasoning",
+          "code": "31407368",
+          "price": {
+            "amount": null,
+            "currency": null,
+            "note": "TBA"
+          }
+        }
+      ]
+    },
+    {
+      "id": "creative-culinary",
+      "name": "Creative Culinary",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/nuFScc2DPZfLyKtc8",
+          "contacts": [
+            {
+              "name": "Cecilia",
+              "role": "RnD",
+              "phone": "081290908596"
+            },
+            {
+              "name": "Handoko",
+              "role": "Chef",
+              "phone": "08121918056"
+            }
+          ]
+        },
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/wZ3Nj7UTzpzH8VAD7",
+          "contacts": [
+            {
+              "name": "Christina",
+              "role": "Purchasing",
+              "phone": "082299146494"
+            }
+          ]
+        }
+      ],
+      "products": [
+        {
+          "name": "Seaweed Flake",
+          "code": "MT-777738 B",
+          "price": {
+            "amount": null,
+            "currency": null,
+            "note": "TBA"
+          }
+        }
+      ]
+    },
+    {
+      "id": "daidan",
+      "name": "Daidan",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/G31m3mZqBSbZoQ7X7",
+          "contacts": [
+            {
+              "name": "Helen",
+              "role": "Purchasing Manager",
+              "phone": "08158827286"
+            },
+            {
+              "name": "Dini",
+              "role": "RnD",
+              "phone": "081311812575"
+            }
+          ]
+        },
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/Zp8e9S6XuGHZvpXF7",
+          "contacts": [
+            {
+              "name": "Widia",
+              "role": "Purchasing",
+              "phone": "089505859482"
+            }
+          ]
+        }
+      ],
+      "products": []
+    },
+    {
+      "id": "kerry-ingredients",
+      "name": "Kerry Ingredients",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/wc41nn3YqkUxy2419",
+          "contacts": [
+            {
+              "name": "Rian Wismiati",
+              "role": "Purchasing",
+              "phone": "081292076217"
+            }
+          ]
+        }
+      ],
+      "products": [
+        {
+          "name": "HVP Powder",
+          "code": "MT-625237",
+          "price": {
+            "amount": null,
+            "currency": null,
+            "note": "contract, country dependent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "liwayway",
+      "name": "Liwayway",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/3um9e4JUZzFyk1dT6",
+          "contacts": [
+            {
+              "name": "Dahlia",
+              "role": "Purchasing",
+              "phone": "081289202782"
+            },
+            {
+              "name": "Marielle",
+              "role": "RnD",
+              "phone": "085124655392",
+              "note": "Phillipines"
+            }
+          ]
+        }
+      ],
+      "products": []
+    },
+    {
+      "id": "malindo",
+      "name": "Malindo",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/1apSr7Sq2uPT5puLA",
+          "contacts": [
+            {
+              "name": "Reinaldo",
+              "role": "Purchasing Manager",
+              "phone": "087778661426"
+            },
+            {
+              "name": "Yendik",
+              "role": "Purchasing",
+              "phone": "085856218063"
+            }
+          ]
+        }
+      ],
+      "products": [
+        {
+          "name": "Hot & Spicy Seasoning",
+          "code": "MT-1203124-4",
+          "price": {
+            "amount": 66000,
+            "currency": "IDR",
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "meiji",
+      "name": "Meiji",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/E1Z5ejpruZVT8Gc76",
+          "contacts": [
+            {
+              "name": "Dewi",
+              "role": "Purchasing",
+              "phone": "08121997773"
+            }
+          ]
+        }
+      ],
+      "products": [
+        {
+          "name": "Amino Acid Powder",
+          "code": "31700465",
+          "price": {
+            "amount": 5.6,
+            "currency": "USD",
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "nissin",
+      "name": "Nissin",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/BAYAXEer3x6g1BVT8",
+          "contacts": [
+            {
+              "name": "Nurul",
+              "role": "Purchasing",
+              "phone": "081910987684"
+            },
+            {
+              "name": "Yuki",
+              "role": "RnD",
+              "phone": "085282915541"
+            }
+          ]
+        }
+      ],
+      "products": []
+    },
+    {
+      "id": "raja-jeva",
+      "name": "Raja Jeva",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/fjfuMf4og5gfJTq77",
+          "contacts": [
+            {
+              "name": "Gani",
+              "role": "Purchasing Manager",
+              "phone": "083856841221"
+            },
+            {
+              "name": "Sherly",
+              "role": "Purchasing",
+              "phone": "089512424540"
+            }
+          ]
+        }
+      ],
+      "products": [
+        {
+          "name": "Chilli Powder",
+          "code": "31407477",
+          "price": {
+            "amount": 54500,
+            "currency": "IDR",
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "rey-pangan",
+      "name": "Rey Pangan",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/qxtkJAJpj5KL9fHFA",
+          "contacts": [
+            {
+              "name": "Valencia",
+              "role": "Purchasing",
+              "phone": "081316890880"
+            }
+          ]
+        }
+      ],
+      "products": []
+    },
+    {
+      "id": "ufi-masuya",
+      "name": "Ufi Masuya",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/mNDrNAZofPbdBM7s8",
+          "contacts": [
+            {
+              "name": "Indah",
+              "role": "Purchasing",
+              "phone": "085178269258"
+            },
+            {
+              "name": "Teguh",
+              "role": "RnD",
+              "phone": "08981521934"
+            }
+          ]
+        }
+      ],
+      "products": []
+    },
+    {
+      "id": "unilever",
+      "name": "Unilever",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/ndnYRjMVVnUYqbBb6",
+          "contacts": [
+            {
+              "name": "Slamet",
+              "role": "Inventory",
+              "phone": "08567750487"
+            },
+            {
+              "name": "Shinta",
+              "role": "RnD",
+              "phone": "08111936-8751"
+            }
+          ]
+        },
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/EVcTM62XWUXQGKoc9",
+          "contacts": [
+            {
+              "name": "Hafsha",
+              "role": "Procurement",
+              "phone": "081117003306"
+            }
+          ]
+        }
+      ],
+      "products": [
+        {
+          "name": "HVP WCI",
+          "code": "",
+          "price": {
+            "amount": 39800,
+            "currency": "IDR",
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "winarto",
+      "name": "Winarto",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/cAYs7hiccSGRbHQL7",
+          "contacts": [
+            {
+              "name": "Endah",
+              "role": "Owner",
+              "phone": "085782311180"
+            }
+          ]
+        }
+      ],
+      "products": [
+        {
+          "name": "Garlic Powder",
+          "code": "MS-2001 A",
+          "price": {
+            "amount": null,
+            "currency": null,
+            "note": "TBA"
+          }
+        }
+      ]
+    }
+  ]
+}

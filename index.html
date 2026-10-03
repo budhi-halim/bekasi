@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Bekasi customer directory.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Bekasi Customer Directory</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/ui.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#directory">Skip to customers</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Bekasi Customer Directory, top of page">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 20V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14M3 20h18M9 8h1m4 0h1M9 12h1m4 0h1m-4 8v-4h2v4"/>
+          </svg>
+        </span>
+        <span class="brand-name">Customer directory<span class="brand-area" id="brand-area">Bekasi area</span></span>
+      </a>
+      <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme" hidden></button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="overview" aria-labelledby="page-title">
+      <div class="intro">
+        <h1 id="page-title">Bekasi customers</h1>
+      </div>
+      <dl class="stats" aria-label="Directory totals">
+        <div class="stat"><dt>Customers</dt><dd id="stat-customers">—</dd></div>
+        <div class="stat"><dt>Locations</dt><dd id="stat-locations">—</dd></div>
+        <div class="stat"><dt>Contacts</dt><dd id="stat-contacts">—</dd></div>
+      </dl>
+    </section>
+
+    <section class="directory" id="directory" aria-label="Customer directory" tabindex="-1">
+      <div class="toolbar" id="toolbar" hidden>
+        <div class="toolbar-main">
+          <div class="search-field" role="search">
+            <svg class="icon search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.7"/><path d="m16 16 4.5 4.5"/></svg>
+            <label class="sr-only" for="search">Search company names, PIC names, ordered products, or product codes</label>
+            <input id="search" type="search" placeholder="Search companies, PICs, products…" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="search" aria-controls="customer-grid">
+            <button class="icon-button search-clear" id="search-clear" type="button" aria-label="Clear search" hidden>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="toolbar-secondary" id="filter-bar" hidden>
+        <div class="filters" role="group" aria-label="Filter by recorded products">
+          <button type="button" class="filter-button is-active" id="filter-all" aria-pressed="true" aria-controls="customer-grid">All customers <span class="filter-count" id="count-all">0</span></button>
+          <button type="button" class="filter-button" id="filter-products" aria-pressed="false" aria-controls="customer-grid">With products <span class="filter-count" id="count-products">0</span></button>
+        </div>
+      </div>
+
+      <div class="results-bar" id="results-bar" hidden>
+        <p id="result-count" role="status" aria-live="polite" aria-atomic="true"></p>
+        <button class="text-button" id="reset-view" type="button" hidden>Reset view</button>
+      </div>
+
+      <div class="loading-state" id="loading-state" role="status"><span class="loader" aria-hidden="true"></span>Loading…</div>
+      <div class="customer-grid" id="customer-grid" aria-busy="true"></div>
+
+      <section class="empty-state" id="empty-state" aria-labelledby="empty-title" hidden>
+        <span class="empty-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="10.7" cy="10.7" r="6.7"/><path d="m16 16 4.5 4.5"/></svg>
+        </span>
+        <h2 id="empty-title">No matching customers</h2>
+        <p id="empty-description">No results for this search.</p>
+        <button class="primary-button" id="empty-reset" type="button">Clear filters</button>
+      </section>
+
+      <section class="error-state" id="error-state" role="alert" aria-labelledby="error-title" hidden>
+        <h2 id="error-title">Unable to load customers</h2>
+        <p id="error-description"></p>
+        <pre id="error-detail" hidden></pre>
+        <button class="primary-button" id="retry" type="button">Retry</button>
+      </section>
+      <noscript><p class="error-state">Enable JavaScript to display the customer directory, search records, and open contact buttons.</p></noscript>
+    </section>
+  </main>
+</body>
+</html>
