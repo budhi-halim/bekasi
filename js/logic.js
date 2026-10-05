@@ -80,22 +80,38 @@ export function formatMoney(amount, currency) {
   return moneyFormatters.get(currency).format(amount);
 }
 
+/** Support a single price, a note-only price, or quantity-based price tiers. */
 function normalizePrice(value, path) {
-  if (value == null) return { amount: null, currency: null, note: 'TBA' };
-  if (!isRecord(value)) throw new Error(`${path} must be an object with amount, currency, and note.`);
+  if (value == null) return { amount: null, currency: null, note: 'TBA', tiers: [] };
+  if (!isRecord(value)) throw new Error(`${path} must be a price object.`);
   const amount = value.amount ?? null;
   const currency = text(value.currency, `${path}.currency`).toUpperCase() || null;
   const note = text(value.note, `${path}.note`);
   if (currency !== null && !supportedCurrencies.has(currency)) {
     throw new Error(`${path}.currency must be "IDR", "USD", or null.`);
   }
-  if (amount !== null) {
-    if (typeof amount !== 'number' || !Number.isFinite(amount) || amount < 0) {
-      throw new Error(`${path}.amount must be a non-negative number without currency symbols, or null.`);
+  const validateAmount = (number, amountPath) => {
+    if (typeof number !== 'number' || !Number.isFinite(number) || number < 0) {
+      throw new Error(`${amountPath} must be a non-negative number without currency symbols.`);
     }
-    if (currency === null) throw new Error(`${path}.currency is required when an amount is provided.`);
+    return number;
+  };
+  if (amount !== null) validateAmount(amount, `${path}.amount`);
+  const tiers = array(value.tiers, `${path}.tiers`).map((tier, index) => {
+    const tierPath = `${path}.tiers[${index}]`;
+    if (!isRecord(tier)) throw new Error(`${tierPath} must be an object with condition and amount.`);
+    return {
+      condition: text(tier.condition, `${tierPath}.condition`, true),
+      amount: validateAmount(tier.amount, `${tierPath}.amount`)
+    };
+  });
+  if (tiers.length && amount !== null) {
+    throw new Error(`${path} must use either an amount or tiers, not both.`);
   }
-  return { amount, currency, note: amount === null && !note ? 'TBA' : note };
+  if ((amount !== null || tiers.length) && currency === null) {
+    throw new Error(`${path}.currency is required when an amount or tiers are provided.`);
+  }
+  return { amount, currency, note: amount === null && !tiers.length && !note ? 'TBA' : note, tiers };
 }
 
 /** Validate edits with field-specific messages, and return a fresh normalized object. */
@@ -120,6 +136,9 @@ export function normalizeDirectory(source) {
       const rawUrl = text(location.mapsUrl, `${locationPath}.mapsUrl`);
       const mapsUrl = normalizeMapsUrl(rawUrl);
       if (rawUrl && !mapsUrl) throw new Error(`${locationPath}.mapsUrl must be an HTTPS Google Maps link, or empty.`);
+      if (location.mapsUnconfirmed != null && typeof location.mapsUnconfirmed !== 'boolean') {
+        throw new Error(`${locationPath}.mapsUnconfirmed must be true or false, without quotes.`);
+      }
       const contacts = array(location.contacts, `${locationPath}.contacts`).map((person, personIndex) => {
         const personPath = `${locationPath}.contacts[${personIndex}]`;
         if (!isRecord(person)) throw new Error(`${personPath} must be a contact object.`);
@@ -135,7 +154,13 @@ export function normalizeDirectory(source) {
           whatsappUrl: whatsappUrl(phone)
         };
       });
-      return { label: text(location.label, `${locationPath}.label`), mapsUrl, contacts };
+      return {
+        label: text(location.label, `${locationPath}.label`),
+        address: text(location.address, `${locationPath}.address`),
+        mapNote: text(location.mapNote, `${locationPath}.mapNote`),
+        mapsUnconfirmed: location.mapsUnconfirmed === true,
+        mapsUrl, contacts
+      };
     });
     const products = array(entry.products, `${path}.products`).map((product, index) => {
       const productPath = `${path}.products[${index}]`;
@@ -146,7 +171,15 @@ export function normalizeDirectory(source) {
         price: normalizePrice(product.price, `${productPath}.price`)
       };
     });
-    const customer = { id, name, locations, products };
+    const terms = array(entry.terms, `${path}.terms`).map((term, index) => {
+      const termPath = `${path}.terms[${index}]`;
+      if (!isRecord(term)) throw new Error(`${termPath} must be an object with label and text.`);
+      return {
+        label: text(term.label, `${termPath}.label`, true),
+        text: text(term.text, `${termPath}.text`, true)
+      };
+    });
+    const customer = { id, name, locations, products, terms };
     return { ...customer, searchText: customerSearchText(customer) };
   });
   return {
@@ -164,16 +197,20 @@ export function normalizeSearch(value) {
 function customerSearchText(customer) {
   const values = [customer.name];
   for (const location of customer.locations) {
-    values.push(location.label);
+    values.push(location.label, location.address, location.mapsUnconfirmed ? 'Unconfirmed' : location.mapNote);
     for (const person of location.contacts) {
       values.push(person.name, person.role, person.note, person.phone,
         person.phone.replace(/\D/g, ''), normalizePhone(person.phone) || '');
     }
   }
+  for (const term of customer.terms) values.push(term.label, term.text);
   for (const product of customer.products) {
     values.push(product.name, product.code, product.price.note, product.price.currency || '');
     if (product.price.amount !== null) {
       values.push(String(product.price.amount), formatMoney(product.price.amount, product.price.currency));
+    }
+    for (const tier of product.price.tiers) {
+      values.push(tier.condition, String(tier.amount), formatMoney(tier.amount, product.price.currency));
     }
   }
   return normalizeSearch(values.join(' '));

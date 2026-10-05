@@ -97,12 +97,25 @@
     header.append(label);
     if (location.mapsUrl) {
       const map = externalLink(location.mapsUrl, 'maps-link', `Open Google Maps for ${customer.name} — ${siteName}`);
+      if (location.mapsUnconfirmed) map.setAttribute('aria-describedby', `${titleId}-map-status`);
       map.append(element('span', '', 'Open Maps'), icon('arrow'));
       header.append(map);
     } else {
       header.append(element('span', 'map-pending', 'Map not recorded'));
     }
     section.append(header);
+    if (location.address || location.mapsUnconfirmed || location.mapNote) {
+      const details = element('div', 'location-details');
+      if (location.address) details.append(element('p', 'location-address', location.address));
+      if (location.mapsUnconfirmed) {
+        const status = element('span', 'location-map-status', 'Unconfirmed');
+        status.id = `${titleId}-map-status`;
+        details.append(status);
+      } else if (location.mapNote) {
+        details.append(element('p', 'location-map-note', location.mapNote));
+      }
+      section.append(details);
+    }
     if (location.contacts.length) {
       const list = element('ul', 'contact-list');
       for (const contact of location.contacts) list.append(renderContact(contact, customer, siteName));
@@ -127,13 +140,25 @@
       amount.lang = price.currency === 'IDR' ? 'id' : 'en-US';
       value.append(amount, element('p', 'price-currency', price.currency));
       row.append(value);
-    } else if (price.note.toUpperCase() === 'TBA') {
+    } else if (!price.tiers.length && price.note.toUpperCase() === 'TBA') {
       const badge = element('span', 'price-tba', 'TBA');
       badge.setAttribute('aria-label', 'Price to be announced');
       row.append(badge);
     }
     item.append(row);
-    if (price.note && !(price.amount === null && price.note.toUpperCase() === 'TBA')) {
+    if (price.tiers.length) {
+      const tiers = element('dl', 'price-tiers');
+      tiers.setAttribute('aria-label', `${product.name}, ${product.code || 'product'}: prices by quantity in ${price.currency}`);
+      for (const tier of price.tiers) {
+        const tierRow = element('div', 'price-tier');
+        const amount = element('dd', 'price-amount', logic.formatMoney(tier.amount, price.currency));
+        amount.lang = price.currency === 'IDR' ? 'id' : 'en-US';
+        tierRow.append(element('dt', 'tier-condition', tier.condition), amount);
+        tiers.append(tierRow);
+      }
+      item.append(tiers);
+    }
+    if (price.note && !(price.amount === null && !price.tiers.length && price.note.toUpperCase() === 'TBA')) {
       const note = element('p', 'price-note');
       note.append(icon('info'), element('span', '', price.note));
       item.append(note);
@@ -160,6 +185,17 @@
     return section;
   }
 
+  function renderTerms(customer) {
+    const terms = element('dl', 'customer-terms');
+    terms.setAttribute('aria-label', `${customer.name} order terms`);
+    for (const term of customer.terms) {
+      const row = element('div', 'customer-term');
+      row.append(element('dt', '', term.label), element('dd', '', term.text));
+      terms.append(row);
+    }
+    return terms;
+  }
+
   function renderCustomer(customer) {
     const card = element('article', 'customer-card');
     card.id = `customer-${customer.id}`;
@@ -179,7 +215,9 @@
     } else {
       customer.locations.forEach((location, index) => locations.append(renderLocation(location, index, customer)));
     }
-    card.append(header, locations, renderProducts(customer));
+    card.append(header, locations);
+    if (customer.terms.length) card.append(renderTerms(customer));
+    card.append(renderProducts(customer));
     return card;
   }
 
@@ -274,7 +312,7 @@
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
-      logic ??= await import('./logic.js');
+      logic ??= await import('./logic.js?v=20261005-2');
       const response = await fetch(new URL('data/customers.json', document.baseURI), {
         cache: 'no-store', credentials: 'same-origin', signal: controller.signal
       });

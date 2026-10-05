@@ -34,9 +34,9 @@
           "name": "Pizza Seasoning",
           "code": "31407368",
           "price": {
-            "amount": null,
-            "currency": null,
-            "note": "TBA"
+            "amount": 7.7,
+            "currency": "USD",
+            "note": ""
           }
         }
       ]
@@ -78,9 +78,9 @@
           "name": "Seaweed Flake",
           "code": "MT-777738 B",
           "price": {
-            "amount": null,
-            "currency": null,
-            "note": "TBA"
+            "amount": 380000,
+            "currency": "IDR",
+            "note": ""
           }
         }
       ]
@@ -117,7 +117,65 @@
           ]
         }
       ],
-      "products": []
+      "products": [
+        {
+          "name": "Roasted Corn Seasoning",
+          "code": "31602858",
+          "price": {
+            "currency": "IDR",
+            "tiers": [
+              {
+                "condition": "≥ 400 kg",
+                "amount": 59000
+              },
+              {
+                "condition": "< 400 kg",
+                "amount": 61500
+              }
+            ]
+          }
+        },
+        {
+          "name": "Corn Seasoning",
+          "code": "31602901",
+          "price": {
+            "currency": "IDR",
+            "tiers": [
+              {
+                "condition": "≥ 400 kg",
+                "amount": 94000
+              },
+              {
+                "condition": "< 400 kg",
+                "amount": 97000
+              }
+            ]
+          }
+        },
+        {
+          "name": "Corn Seasoning",
+          "code": "31603088",
+          "price": {
+            "currency": "IDR",
+            "tiers": [
+              {
+                "condition": "≥ 400 kg",
+                "amount": 96000
+              },
+              {
+                "condition": "< 400 kg",
+                "amount": 98500
+              }
+            ]
+          }
+        }
+      ],
+      "terms": [
+        {
+          "label": "Final partial delivery",
+          "text": "Within 30 days of the PO date."
+        }
+      ]
     },
     {
       "id": "kerry-ingredients",
@@ -169,7 +227,44 @@
           ]
         }
       ],
-      "products": []
+      "products": [
+        {
+          "name": "Onion & Chives Seasoning",
+          "code": "31802707",
+          "price": {
+            "amount": 5.35,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Seaweed Seasoning",
+          "code": "31301728",
+          "price": {
+            "amount": 5.55,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Sour Cream & Onion Seasoning",
+          "code": "31802704",
+          "price": {
+            "amount": 4.8,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Flamming Hot Seasoning",
+          "code": "31408113",
+          "price": {
+            "amount": 4.25,
+            "currency": "USD",
+            "note": ""
+          }
+        }
+      ]
     },
     {
       "id": "malindo",
@@ -233,6 +328,60 @@
       ]
     },
     {
+      "id": "multi-citra-rasa",
+      "name": "Multi Citra Rasa",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/VNMpfik4yM2CM7ot8",
+          "contacts": [
+            {
+              "name": "Amelia",
+              "role": "Purchasing",
+              "phone": "081113803359"
+            }
+          ]
+        }
+      ],
+      "products": []
+    },
+    {
+      "id": "nhf-diamond",
+      "name": "NHF Diamond",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/t13Nd9eK1DDKR2vQA",
+          "contacts": [
+            {
+              "name": "Syafira",
+              "role": "Purchasing",
+              "phone": "081328513789"
+            }
+          ]
+        }
+      ],
+      "products": []
+    },
+    {
+      "id": "niramas",
+      "name": "Niramas",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/ifbkT6orm6abHtNP7",
+          "contacts": [
+            {
+              "name": "Melinia",
+              "role": "Purchasing",
+              "phone": "089651725883"
+            }
+          ]
+        }
+      ],
+      "products": []
+    },
+    {
       "id": "nissin",
       "name": "Nissin",
       "locations": [
@@ -253,7 +402,81 @@
           ]
         }
       ],
-      "products": []
+      "products": [
+        {
+          "name": "Roasted Garlic",
+          "code": "GMS 2059",
+          "price": {
+            "amount": 6.5,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Ginger Powder",
+          "code": "GMS 1010E",
+          "price": {
+            "amount": 8.5,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Soy Sauce Powder",
+          "code": "CAI 3779 A",
+          "price": {
+            "amount": 4.7,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Garlic Powder",
+          "code": "MS 2001",
+          "price": {
+            "amount": 5.1,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Chicken Powder",
+          "code": "31102691",
+          "price": {
+            "amount": 10,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Bumbu Rasa Udang",
+          "code": "31301574",
+          "price": {
+            "amount": 5.3,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Chicken Flavour Powder",
+          "code": "31102845",
+          "price": {
+            "amount": 98500,
+            "currency": "IDR",
+            "note": ""
+          }
+        }
+      ],
+      "terms": [
+        {
+          "label": "Exchange rate",
+          "text": "Average JISDOR for the month before the PO month."
+        },
+        {
+          "label": "Delivery deadline",
+          "text": "End of the second month after the PO month."
+        }
+      ]
     },
     {
       "id": "raja-jeva",
@@ -289,6 +512,46 @@
       ]
     },
     {
+      "id": "rendy",
+      "name": "Rendy",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://www.google.com/maps/?cid=16319986261674011497",
+          "address": "Ruko Griya Bintara AA No. 02, Jl. Raya Bintara, Bekasi Barat",
+          "mapsUnconfirmed": true,
+          "mapsSource": "https://www.semuabis.com/oma-emi-0896-0100-0098",
+          "contacts": [
+            {
+              "name": "Rendy",
+              "role": "Owner",
+              "phone": "08161642800"
+            }
+          ]
+        }
+      ],
+      "products": [
+        {
+          "name": "Sweet Corn Seasoning",
+          "code": "06-0037 A",
+          "price": {
+            "amount": 57000,
+            "currency": "IDR",
+            "note": ""
+          }
+        },
+        {
+          "name": "Roasted Corn Seasoning",
+          "code": "06-0091",
+          "price": {
+            "amount": 61000,
+            "currency": "IDR",
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
       "id": "rey-pangan",
       "name": "Rey Pangan",
       "locations": [
@@ -300,6 +563,26 @@
               "name": "Valencia",
               "role": "Purchasing",
               "phone": "081316890880"
+            }
+          ]
+        }
+      ],
+      "products": []
+    },
+    {
+      "id": "sentra-savori-sejahtera",
+      "name": "Sentra Savori Sejahtera",
+      "locations": [
+        {
+          "label": "",
+          "mapsUrl": "https://maps.app.goo.gl/S8dqKxU7xSW31ioh9",
+          "address": "Ruko Pasar Bersih Cikarang No. 17-18, Jl. Inspeksi Kalimalang, Jababeka, Jaya Mukti, Cikarang Pusat, Kabupaten Bekasi",
+          "mapsUnconfirmed": true,
+          "contacts": [
+            {
+              "name": "Rostini",
+              "role": "Purchasing",
+              "phone": "081274730909"
             }
           ]
         }
@@ -327,7 +610,53 @@
           ]
         }
       ],
-      "products": []
+      "products": [
+        {
+          "name": "Chilli Oil",
+          "code": "546154",
+          "price": {
+            "amount": 5.25,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Cheese Seasoning",
+          "code": "31502493",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Cheese Powder",
+          "code": "31502530",
+          "price": {
+            "amount": 17,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "Chilli Powder",
+          "code": "31407189",
+          "price": {
+            "amount": 3.4,
+            "currency": "USD",
+            "note": ""
+          }
+        },
+        {
+          "name": "HVP WCI",
+          "code": "",
+          "price": {
+            "amount": 3,
+            "currency": "USD",
+            "note": ""
+          }
+        }
+      ]
     },
     {
       "id": "unilever",
@@ -394,9 +723,9 @@
           "name": "Garlic Powder",
           "code": "MS-2001 A",
           "price": {
-            "amount": null,
-            "currency": null,
-            "note": "TBA"
+            "amount": 6,
+            "currency": "USD",
+            "note": ""
           }
         }
       ]
